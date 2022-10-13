@@ -1,8 +1,33 @@
 window.onload = function(){
-    var boardLayout = document.getElementById("board");
+    var boardLayout = document.querySelectorAll("#board > div");
 
-    for(let i=0; i<boardLayout.children.length; i++){
-        boardLayout.children[i].setAttribute("class", "square");
+    var playerX = "X";
+    var playerO = "O";
+    var currplayer = "X";
+
+    for(let i=0; i<=8; i++){
+        boardLayout[i].setAttribute("class","square");
+        boardLayout[i].innerHTML = "";
     }
+
+    boardLayout.forEach((element) =>{
+        element.classList.add("square");
+        element.innerHTML = "";
+
+        element.addEventListener("click", function(){
+            if ((currplayer == "O") && (element.innerHTML == "")){
+                element.innerHTML = playerX;
+                element.classList.add("X");
+                currplayer = "X";
+
+            }else if ((currplayer == "X") && (element.innerHTML =="")){
+                element.innerHTML = playerO;
+                element.classList.add("O");
+                currplayer = "O";
+            }
+        });
+    });
+
+
 
 }
