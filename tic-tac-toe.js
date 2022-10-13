@@ -1,6 +1,7 @@
 window.onload = function(){
     var boardLayout = document.querySelectorAll("#board > div");
     var status = document.getElementById("status");
+    var restart = document.querySelector(".btn");
 
     var playerX = "X";
     var playerO = "O";
@@ -36,7 +37,7 @@ window.onload = function(){
                 && (boardLayout[index[2]].innerHTML == playerX)){
                     status.classList.add("you-won");
                     status.innerHTML = ("Congratulations! X is the Winner!");
-                    
+
                 }else if((boardLayout[index[0]].innerHTML == playerO) 
                 && (boardLayout[index[1]].innerHTML == playerO) 
                 && (boardLayout[index[2]].innerHTML == playerO)){
@@ -45,7 +46,6 @@ window.onload = function(){
                 }
             });
     
-            
         });
         
         element.onmouseover = (event) =>{
@@ -57,5 +57,9 @@ window.onload = function(){
             element.classList.remove("hover");
         }
     });
+
+    restart.addEventListener("click", (event) => {
+        location.reload();
+    })
 
 }
