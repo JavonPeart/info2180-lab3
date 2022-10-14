@@ -37,15 +37,25 @@ window.onload = function(){
                 && (boardLayout[index[2]].innerHTML == playerX)){
                     status.classList.add("you-won");
                     status.innerHTML = ("Congratulations! X is the Winner!");
-
+                    boardLayout.forEach((tile)=>{
+                        if (tile.innerHTML == ""){
+                            tile.innerHTML = " ";
+                        }
+                    });
+                    
                 }else if((boardLayout[index[0]].innerHTML == playerO) 
                 && (boardLayout[index[1]].innerHTML == playerO) 
                 && (boardLayout[index[2]].innerHTML == playerO)){
                     status.classList.add("you-won");
                     status.innerHTML = ("Congratulations! O is the Winner!");
+                    boardLayout.forEach((tile)=>{
+                        if (tile.innerHTML == ""){
+                            tile.innerHTML = " ";
+                        }});
                 }
             });
     
+            
         });
         
         element.onmouseover = (event) =>{
